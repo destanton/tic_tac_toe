@@ -19,10 +19,10 @@ player_1 = "X"
 
 def turns(player_1):
     board_print(board_game)
-    row, column = input("where do you want to move? \n*enter input as number space number: ").split(" ")
+    row, column = input("where do you want to move? \n*enter input as NUMBER space NUMBER: ").split(" ")
     row, column = int(row), int(column)
     if board_game[row][column] == "X" or board_game[row][column] == "O":
-        print("that spot's already taken")
+        print("That spot's already taken")
     else:
         board_game[row][column] = player_1  # MAGIC
         win_condition(player_1, turns)
@@ -33,7 +33,6 @@ def turns(player_1):
         else:
             player_1 = "X"
         turns(player_1)
-        # (board_print(board_game))
 
 
 def win_condition(player_1, turns):
@@ -44,10 +43,10 @@ def win_condition(player_1, turns):
     # print(winner)
     # while True:
     if board_game[0] == winner or board_game[1] == winner or board_game[2] == winner:
-        print("You win!")
+        print("You win! {}".format(player_1))
         replay()
     elif column_0 == winner or column_1 == winner or column_2 == winner:
-        print("You win!")
+        print("You win! {}".format(player_1))
         replay()
     else:
         pass
@@ -56,10 +55,31 @@ def win_condition(player_1, turns):
 def replay():
     play_again = input("would you like to play again? Y/n ")
     if play_again != "n":
-        turns(player_1)
+        clear_board()
+
     else:
         print("Bye!")
         sys.exit()
 
 
+def clear_board():
+    board_game = [[" ", " ", " "],
+                  [" ", " ", " "],
+                  [" ", " ", " "]]
+
+    board_print(board_game)
+    # board_print(board_game)
+
 turns(player_1)
+
+
+# def start_game():
+#     board_game = [[" ", " ", " "],
+#                   [" ", " ", " "],
+#                   [" ", " ", " "]]
+#
+#     print(board_print(board_game))
+#     turns(player_1)
+#
+#
+# start_game()
