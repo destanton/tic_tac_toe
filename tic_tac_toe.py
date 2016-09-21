@@ -28,33 +28,27 @@ def board_print(board):
     print("  --+--+--")
     print("2  " + board[2][0] + "|" + board[2][1] + " |" + board[2][2])
 
-board_print(board_game)
+# board_print(board_game)
+
+player_1 = "X"
 
 
-while True:
-    player_1 = "X"
-    print("\n")
-    turn = input("{} where do you want to move? ".format(player_1))
-    # need to choose row and column to move
-    for row in board_game:
-        for column in row:
-            board_game.append(player_1)
-        print(board_game)
-    # board[turn] = player_1
+def turns(player_1):
     board_print(board_game)
-    player_2 = "O"
-    turn = input("{} where do you want to move? ".format(player_2))
-    # board[turn] = player_2
-    board_print(board_game)
+    row, column = input("where do you want to move? ").split(" ")
+    row, column = int(row), int(column)
+    board_game[row][column] = player_1  # MAGIC
 
+    while True:
+        if player_1 == "X":
+            player_1 = "O"
 
-# def game():
-#     game_board = print_board
-#     print(game_board)
-    # for row in matrix:
-    #     for column in row:
-    #         print(column)
-    #     return(row, column)
+        else:
+            player_1 = "X"
+        turns(player_1)
+        # (board_print(board_game))
 
-# print(row, column())
-# game()
+turns(player_1)
+#
+# if row, column of board_game == "x" or "o"
+# then print("that spot's already taken ")
