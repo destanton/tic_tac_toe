@@ -15,37 +15,46 @@
 # 			  1,0 1,1 1,2
 # 			  2,0 2,1 2,2
 
-
-# board = [["_", "_", "_"],
-#          ["_", "_", "_"],
-#          ["_", "_", "_"]]
-
-# used idea for board from dictionary section of book
-board = {'0': ' ', '1': ' ', '2': ' ',
-         '3': ' ', '4': ' ', '5': ' ',
-         '6': ' ', '5': ' ', '8': ' '}
-
-print("Let's play Tic Tac Toe")
-print("\n")
+board_game = [[" ", " ", " "],
+              [" ", " ", " "],
+              [" ", " ", " "]]
 
 
 def board_print(board):
-    print('0' + board['0'] + '|' + '1' + board['1'] + '|' + '2' + board['2'])
-    print('--+--+--')
-    print('3' + board['3'] + '|' + '4' + board['4'] + '|' + '5' + board['5'])
-    print('--+--+--')
-    print('6' + board['6'] + '|' + '5' + board['5'] + '|' + '8' + board['8'])
-    return(board)
-board_print(board)
+    print(" 0   1   2")
+    print("0  " + board[0][0] + "|" + board[0][1] + " |" + board[0][2])
+    print("  --+--+--")
+    print("1  " + board[1][0] + "|" + board[1][1] + " |" + board[1][2])
+    print("  --+--+--")
+    print("2  " + board[2][0] + "|" + board[2][1] + " |" + board[2][2])
+
+board_print(board_game)
 
 
 while True:
     player_1 = "X"
     print("\n")
     turn = input("{} where do you want to move? ".format(player_1))
-    board[turn] = player_1
-    board_print(board)
+    # need to choose row and column to move
+    for row in board_game:
+        for column in row:
+            board_game.append(player_1)
+        print(board_game)
+    # board[turn] = player_1
+    board_print(board_game)
     player_2 = "O"
     turn = input("{} where do you want to move? ".format(player_2))
-    board[turn] = player_2
-    board_print(board)
+    # board[turn] = player_2
+    board_print(board_game)
+
+
+# def game():
+#     game_board = print_board
+#     print(game_board)
+    # for row in matrix:
+    #     for column in row:
+    #         print(column)
+    #     return(row, column)
+
+# print(row, column())
+# game()
