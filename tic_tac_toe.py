@@ -1,4 +1,12 @@
 import sys
+import os
+
+
+def clear():
+    if os.name == 'nt':
+        os.system('cls')
+    else:
+        os.system('clear')
 
 board_game = [[" ", " ", " "],
               [" ", " ", " "],
@@ -6,6 +14,7 @@ board_game = [[" ", " ", " "],
 
 
 def board_print(board):
+    clear()
     print(" 0   1   2")
     print("0  " + board[0][0] + "|" + board[0][1] + " |" + board[0][2])
     print("  --+--+--")
@@ -13,11 +22,12 @@ def board_print(board):
     print("  --+--+--")
     print("2  " + board[2][0] + "|" + board[2][1] + " |" + board[2][2])
 
-# board_print(board_game)
+
 player_1 = "X"
 
 
 def turns(player_1, board_game):
+    clear()
     board_print(board_game)
     print("\n")
     row, column = input("where do you want to move? \n*enter input as NUMBER space NUMBER: ").split(" ")
@@ -61,7 +71,7 @@ def win_condition(player_1, turns):
 def replay():
     play_again = input("would you like to play again? Y/n ").lower()
     if play_again != "n":
-        clear_board()
+        clear()
 
     else:
         print("Bye!")
@@ -75,6 +85,5 @@ def clear_board():
 
     board_print(board_game)
     # board_print(board_game)
-
+clear()
 turns(player_1, board_game)
-clear_board()
